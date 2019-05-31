@@ -1,0 +1,14 @@
+
+iot:
+  device-name: ***
+  product-key: ***
+  device-secret: ***
+serialport:
+  baud-rgot: 115200
+  port-name: COM13
+debug: false
+
+
+logging:
+  level:
+    cn.qqhxj.iot: debug
