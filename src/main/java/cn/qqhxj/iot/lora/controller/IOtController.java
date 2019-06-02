@@ -32,11 +32,11 @@ import static com.aliyun.alink.linksdk.tmp.utils.TmpConstant.TAG;
 public class IOtController implements SerialDataProcessor<String>, ApplicationRunner {
 
 
-    @Value("iot.productKey")
+    @Value("${iot.productKey}")
     private String productKey ;
-    @Value("iot.deviceName")
+    @Value("${iot.deviceName}")
     private String deviceName ;
-    @Value("iot.deviceSecret")
+    @Value("${iot.deviceSecret}")
     private String deviceSecret;
 
     private static String tempStr;
@@ -75,6 +75,7 @@ public class IOtController implements SerialDataProcessor<String>, ApplicationRu
 
 
     void init() {
+        log.info("productKey={},deviceName={},deviceSecret={}",productKey,deviceName,deviceSecret);
         LinkKitInitParams params = new LinkKitInitParams();
         IoTMqttClientConfig config = new IoTMqttClientConfig();
         config.productKey = productKey;

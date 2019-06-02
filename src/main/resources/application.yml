@@ -1,8 +1,11 @@
 
+
+
 iot:
-  device-name: ***
-  product-key: ***
-  device-secret: ***
+  deviceName: ***
+  productKey: ***
+  deviceSecret: ***
+
 serialport:
   baud-rgot: 115200
   port-name: COM13
