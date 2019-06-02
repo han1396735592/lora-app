@@ -4,7 +4,6 @@ HELP.md
 /.mvn/
 mvnw.cmd
 mvnw
-*.iml
 ### STS ###
 .apt_generated
 .classpath
