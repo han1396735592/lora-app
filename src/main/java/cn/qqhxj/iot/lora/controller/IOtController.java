@@ -33,24 +33,24 @@ public class IOtController implements SerialDataProcessor<String>, ApplicationRu
 
 
     @Value("${iot.productKey}")
-    private String productKey ;
+    private String productKey;
     @Value("${iot.deviceName}")
-    private String deviceName ;
+    private String deviceName;
     @Value("${iot.deviceSecret}")
     private String deviceSecret;
 
     private static String tempStr;
 
     @Override
-    public void processor(String s) {
+    public void process(String s) {
         String str = s.replaceAll("[^0-9a-zA-Z{\"\'\t\\n:}_]J*", "");
 
-        if (str.startsWith("{")&&!str.endsWith("}")){
+        if (str.startsWith("{") && !str.endsWith("}")) {
             tempStr = str;
-            return ;
+            return;
         }
-        if (!str.startsWith("{")&&str.endsWith("}")){
-            str=tempStr+str;
+        if (!str.startsWith("{") && str.endsWith("}")) {
+            str = tempStr + str;
         }
 
 
@@ -73,9 +73,8 @@ public class IOtController implements SerialDataProcessor<String>, ApplicationRu
     }
 
 
-
     void init() {
-        log.info("productKey={},deviceName={},deviceSecret={}",productKey,deviceName,deviceSecret);
+        log.info("productKey={},deviceName={},deviceSecret={}", productKey, deviceName, deviceSecret);
         LinkKitInitParams params = new LinkKitInitParams();
         IoTMqttClientConfig config = new IoTMqttClientConfig();
         config.productKey = productKey;
@@ -102,11 +101,12 @@ public class IOtController implements SerialDataProcessor<String>, ApplicationRu
     }
 
 
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
         log.info("iot init");
         init();
     }
+
+
 }
