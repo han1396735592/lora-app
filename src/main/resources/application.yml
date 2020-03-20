@@ -4,7 +4,7 @@ iot:
   deviceSecret: ***
 
 serialport:
-  baud-rgot: 115200
+  baud-rate: 115200
   port-name: COM13
 debug: false
 
